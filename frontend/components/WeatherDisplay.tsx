@@ -20,7 +20,7 @@ export default function WeatherDisplay({ weather, onReset }: WeatherDisplayProps
       </div>
 
       {/* Card principal - Temperatura e condição */}
-      <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-3xl p-8 shadow-2xl text-white mb-6">
+      <div className="bg-linear-to-br from-blue-500 to-blue-700 rounded-3xl p-8 shadow-2xl text-white mb-6">
         <div className="flex items-center justify-between">
           <div>
             <div className="text-7xl font-bold mb-2">
