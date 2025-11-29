@@ -11,7 +11,6 @@ interface WeatherDisplayProps {
 export default function WeatherDisplay({ weather, onReset }: WeatherDisplayProps) {
   return (
     <div className="w-full max-w-4xl mx-auto animate-fade-in">
-      {/* Header com nome da cidade */}
       <div className="text-center mb-8">
         <h2 className="text-4xl font-bold text-gray-800 mb-2">
           📍 {weather.city}
@@ -19,8 +18,7 @@ export default function WeatherDisplay({ weather, onReset }: WeatherDisplayProps
         <p className="text-gray-600">Dados em tempo real</p>
       </div>
 
-      {/* Card principal - Temperatura e condição */}
-      <div className="bg-linear-to-br from-blue-500 to-blue-700 rounded-3xl p-8 shadow-2xl text-white mb-6">
+      <div className="bg-linear-to-br from-blue-500 to-blue-700 rounded-3xl p-8 shadow-2xl text-blue-400 mb-6">
         <div className="flex items-center justify-between">
           <div>
             <div className="text-7xl font-bold mb-2">
@@ -36,9 +34,7 @@ export default function WeatherDisplay({ weather, onReset }: WeatherDisplayProps
         </div>
       </div>
 
-      {/* Grid de informações adicionais */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-        {/* Umidade */}
         <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
           <div className="flex items-center justify-between">
             <div>
@@ -51,7 +47,6 @@ export default function WeatherDisplay({ weather, onReset }: WeatherDisplayProps
           </div>
         </div>
 
-        {/* Vento */}
         <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
           <div className="flex items-center justify-between">
             <div>
@@ -64,7 +59,6 @@ export default function WeatherDisplay({ weather, onReset }: WeatherDisplayProps
           </div>
         </div>
 
-        {/* Sensação térmica (se disponível) */}
         {weather.feels_like && (
           <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
             <div className="flex items-center justify-between">
@@ -79,7 +73,6 @@ export default function WeatherDisplay({ weather, onReset }: WeatherDisplayProps
           </div>
         )}
 
-        {/* Pressão (se disponível) */}
         {weather.pressure && (
           <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
             <div className="flex items-center justify-between">
@@ -94,7 +87,6 @@ export default function WeatherDisplay({ weather, onReset }: WeatherDisplayProps
           </div>
         )}
 
-        {/* Visibilidade (se disponível) */}
         {weather.visibility && (
           <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
             <div className="flex items-center justify-between">
@@ -109,7 +101,6 @@ export default function WeatherDisplay({ weather, onReset }: WeatherDisplayProps
           </div>
         )}
 
-        {/* Índice UV (se disponível) */}
         {weather.uv_index !== undefined && (
           <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
             <div className="flex items-center justify-between">
@@ -125,7 +116,6 @@ export default function WeatherDisplay({ weather, onReset }: WeatherDisplayProps
         )}
       </div>
 
-      {/* Botão para nova busca */}
       <div className="text-center">
         <button
           onClick={onReset}

@@ -2,7 +2,7 @@ from fastapi import HTTPException
 
 def validate_city(city: str):
     """
-    Validação customizada (equivalente a um @Validator do Spring)
+    Validação customizada
     """
     if not city or len(city.strip()) < 2:
         raise HTTPException(

@@ -11,9 +11,6 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  /**
-   * Função para buscar dados do clima
-   */
   const handleCitySelect = async (city: string) => {
     setIsLoading(true);
     setError(null);
@@ -30,9 +27,6 @@ export default function Home() {
     }
   };
 
-  /**
-   * Função para resetar e fazer nova busca
-   */
   const handleReset = () => {
     setWeather(null);
     setError(null);
@@ -40,15 +34,12 @@ export default function Home() {
 
   return (
     <div className="container mx-auto px-4 py-8 md:py-12">
-      {/* Hero Section - Mostrado apenas quando não há dados */}
       {!weather && !error && (
         <div className="text-center mb-12 animate-fade-in">
           <div className="inline-block mb-6">
             <div className="relative">
-              {/* Efeito de brilho */}
-              <div className="absolute inset-0 bg-linear-to-r from-blue-600 to-cyan-600 rounded-full blur-2xl opacity-20 animate-pulse"></div>
-              {/* Ícone principal */}
-              <div className="relative bg-linear-to-br from-blue-500 via-cyan-500 to-blue-600 p-6 rounded-full">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full blur-2xl opacity-20 animate-pulse"></div>
+              <div className="relative bg-gradient-to-br from-blue-500 via-cyan-500 to-blue-600 p-6 rounded-full">
                 <svg 
                   className="w-16 h-16 text-white" 
                   fill="none" 
@@ -67,7 +58,7 @@ export default function Home() {
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold mb-4 font-poppins">
-            <span className="bg-linear-to-r from-blue-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent">
               Previsão do Tempo
             </span>
           </h1>
@@ -78,7 +69,6 @@ export default function Home() {
             Digite o nome de qualquer cidade para visualizar temperatura, umidade, velocidade do vento e muito mais
           </p>
 
-          {/* Features badges */}
           <div className="flex flex-wrap justify-center gap-3 mt-8">
             <div className="px-4 py-2 bg-white rounded-full shadow-sm border border-gray-200">
               <span className="text-sm">⚡ Dados em tempo real</span>
@@ -93,25 +83,21 @@ export default function Home() {
         </div>
       )}
 
-      {/* Seletor de cidade */}
       {!weather && (
         <div className="animate-fade-in">
           <CitySelector onCitySelect={handleCitySelect} isLoading={isLoading} />
         </div>
       )}
 
-      {/* Loading state - Skeleton com animação elegante */}
       {isLoading && (
         <div className="max-w-4xl mx-auto mt-8 animate-fade-in">
           <div className="bg-white rounded-3xl p-8 shadow-xl">
             <div className="animate-pulse">
-              {/* Header skeleton */}
               <div className="flex items-center justify-center mb-8">
                 <div className="h-8 w-48 bg-gray-200 rounded-full"></div>
               </div>
 
-              {/* Main card skeleton */}
-              <div className="bg-linear-to-br from-gray-200 to-gray-300 rounded-3xl p-8 mb-6">
+              <div className="bg-gradient-to-br from-gray-200 to-gray-300 rounded-3xl p-8 mb-6">
                 <div className="flex items-center justify-between">
                   <div className="space-y-4">
                     <div className="h-16 w-32 bg-gray-400/50 rounded-lg"></div>
@@ -121,7 +107,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Grid skeleton */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {[1, 2, 3].map((i) => (
                   <div key={i} className="h-32 bg-gray-200 rounded-2xl"></div>
@@ -129,7 +114,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Loading text */}
             <div className="text-center mt-6">
               <p className="text-gray-600 flex items-center justify-center gap-2">
                 <svg className="animate-spin h-5 w-5 text-blue-600" viewBox="0 0 24 24">
@@ -143,7 +127,6 @@ export default function Home() {
         </div>
       )}
 
-      {/* Error state - Design melhorado */}
       {error && !isLoading && (
         <div className="max-w-2xl mx-auto mt-8 animate-fade-in">
           <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-8 text-center">
@@ -176,16 +159,13 @@ export default function Home() {
         </div>
       )}
 
-      {/* Weather display */}
       {weather && !isLoading && (
         <WeatherDisplay weather={weather} onReset={handleReset} />
       )}
 
-      {/* Info cards - Mostrado apenas na página inicial */}
       {!weather && !isLoading && !error && (
         <div className="mt-16 max-w-5xl mx-auto animate-fade-in">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Card 1 */}
             <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group">
               <div className="inline-block p-3 bg-blue-50 rounded-xl mb-4 group-hover:bg-blue-100 transition-colors">
                 <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -198,7 +178,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Card 2 */}
             <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group">
               <div className="inline-block p-3 bg-cyan-50 rounded-xl mb-4 group-hover:bg-cyan-100 transition-colors">
                 <svg className="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -211,7 +190,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Card 3 */}
             <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group">
               <div className="inline-block p-3 bg-indigo-50 rounded-xl mb-4 group-hover:bg-indigo-100 transition-colors">
                 <svg className="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

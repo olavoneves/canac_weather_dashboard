@@ -5,7 +5,7 @@ from app.validations.city_validator import validate_city
 
 router = APIRouter()
 
-# Injeção de dependência "manual" (Spring faz automaticamente)
+# Injeta dependência manualmente
 def get_weather_service():
     return WeatherService()
 
@@ -15,10 +15,8 @@ async def get_weather(
     service: WeatherService = Depends(get_weather_service)
 ):
     """
-    Busca informações climáticas de uma cidade
-    Equivalente a: @GetMapping("/weather/{city}")
+    Busca informações climáticas de uma cidade específica.
     """
-    # Validação (equivalente ao @Valid)
     validate_city(city)
     
     try:

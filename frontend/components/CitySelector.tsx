@@ -50,7 +50,6 @@ export default function CitySelector({ onCitySelect, isLoading }: CitySelectorPr
   return (
     <div className="w-full max-w-2xl mx-auto">
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Input de busca */}
         <div className="relative">
           <input
             type="text"
@@ -82,7 +81,6 @@ export default function CitySelector({ onCitySelect, isLoading }: CitySelectorPr
           </button>
         </div>
 
-        {/* Mensagem de erro */}
         {error && (
           <div className="text-red-500 text-sm px-2 animate-fade-in">
             ⚠️ {error}
@@ -90,7 +88,6 @@ export default function CitySelector({ onCitySelect, isLoading }: CitySelectorPr
         )}
       </form>
 
-      {/* Cidades sugeridas */}
       <div className="mt-8">
         <p className="text-sm text-gray-600 mb-3 font-medium">Cidades populares:</p>
         <div className="flex flex-wrap gap-2">
