@@ -66,11 +66,11 @@ A documentação interativa (Swagger) do backend está disponível em:
 ```
 backend/
 ├── app/
-│   ├── controllers/      # Endpoints e rotas HTTP
-│   ├── services/         # Lógica de negócio
-│   ├── models/           # DTOs e schemas Pydantic
-│   ├── validators/       # Validações customizadas
-│   └── exceptions/       # Tratamento de erros
+│   ├── controller/      # Endpoints e rotas HTTP
+│   ├── service/         # Lógica de negócio
+│   ├── model/           # DTOs e schemas Pydantic
+│   ├── validations/     # Validações customizadas
+│   └── exceptions/      # Tratamento de erros
 ```
 
 **Decisões:**
@@ -87,7 +87,7 @@ backend/
 GET /api/v1/weather/{city}
 ```
 
-**Retorna:** temperatura, umidade, velocidade do vento e código de condição climática.
+**Retorna:** temperatura, umidade, velocidade do vento, código de condição climática.
 
 ---
 
@@ -190,7 +190,7 @@ curl http://localhost:8000/api/v1/weather/Ribeirao%20Preto
 
 ### Backend
 
-- Python 3.11
+- Python 3.13
 - FastAPI 0.109.0
 - Uvicorn (ASGI server)
 - HTTPX (async HTTP client)
@@ -244,13 +244,13 @@ curl http://localhost:8000/api/v1/weather/Ribeirao%20Preto
 canac_weather_dashboard/
 ├── backend/
 │   ├── app/
-│   │   ├── controllers/
+│   │   ├── controller/
 │   │   │   └── weather_controller.py
-│   │   ├── services/
+│   │   ├── service/
 │   │   │   └── weather_service.py
-│   │   ├── models/
+│   │   ├── model/
 │   │   │   └── weather_model.py
-│   │   ├── validators/
+│   │   ├── validations/
 │   │   │   └── city_validator.py
 │   │   ├── exceptions/
 │   │   │   └── weather_exceptions.py
