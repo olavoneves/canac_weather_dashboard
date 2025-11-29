@@ -1,17 +1,26 @@
 from fastapi import APIRouter, HTTPException, Depends
 from app.service.weather_service import WeatherService
 from app.model.weather_model import WeatherResponse
-from app.validations.city_validation import validate_city
+from app.validations.city_validator import validate_city
 
 router = APIRouter()
 
+# Injeção de dependência "manual" (Spring faz automaticamente)
 def get_weather_service():
     return WeatherService()
 
 @router.get("/weather/{city}", response_model=WeatherResponse)
-async def get_weather(city: str, service: WeatherService = Depends(get_weather_service)):
+async def get_weather(
+    city: str,
+    service: WeatherService = Depends(get_weather_service)
+):
+    """
+    Busca informações climáticas de uma cidade
+    Equivalente a: @GetMapping("/weather/{city}")
+    """
+    # Validação (equivalente ao @Valid)
     validate_city(city)
-
+    
     try:
         weather_data = await service.get_weather_by_city(city)
         return weather_data
